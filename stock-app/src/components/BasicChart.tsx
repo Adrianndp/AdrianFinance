@@ -3,8 +3,8 @@ import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 
 const BasicChart: React.FC<any> = ({ data }) => {
-  if (!data) {
-    return <div>No data to display</div>;
+  if (data === undefined || data === null || !Array.isArray(data)) {
+    return <>No data to display</>;
   }
   const chartOptions: ApexOptions = {
     chart: {

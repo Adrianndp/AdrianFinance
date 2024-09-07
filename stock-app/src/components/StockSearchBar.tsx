@@ -1,22 +1,55 @@
-import React from "react";
-import { TextField, InputAdornment } from "@mui/material";
+import React, { useState } from "react";
+import { Autocomplete, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const StockSearchBar: React.FC<any> = ({ handleChange }) => {
+const options = ["AAPL", "AMZN"];
+
+interface StockSearchBarProps {
+  handleSubmit: (
+    event: React.FormEvent<HTMLFormElement>,
+    value: string
+  ) => void;
+}
+
+const StockSearchBar: React.FC<StockSearchBarProps> = ({ handleSubmit }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    newValue: string | null
+  ) => {
+    if (newValue) {
+      setInputValue(newValue);
+    }
+  };
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit(event, inputValue);
+  };
+
   return (
-    <TextField
-      label="Search"
-      variant="outlined"
-      fullWidth
-      onKeyDown={handleChange}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <SearchIcon />
-          </InputAdornment>
-        ),
-      }}
-    />
+    <form onSubmit={onSubmit}>
+      <Autocomplete
+        options={options}
+        onChange={handleChange}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Search"
+            variant="outlined"
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        )}
+      />
+    </form>
   );
 };
 

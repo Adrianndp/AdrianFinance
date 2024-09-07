@@ -16,15 +16,17 @@ function Main() {
     }
   }, [stockName]); // Only re-run the effect if stockName changes
 
-  const handleChange = (event: any) => {
-    if (event.key === "Enter") {
-      setStockName(event.target.value.toUpperCase());
-    }
+  const handleSubmit = (
+    event: React.FormEvent<HTMLFormElement>,
+    value: string
+  ) => {
+    event.preventDefault();
+    setStockName(value.toUpperCase());
   };
 
   return (
     <div>
-      <StockSearchBar handleChange={handleChange} />
+      <StockSearchBar handleSubmit={handleSubmit} />
       <Navbar />
       <BasicChart data={data} />
     </div>

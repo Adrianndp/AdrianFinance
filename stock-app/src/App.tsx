@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import HomeIcon from "@mui/icons-material/Home";
 import Container from "@mui/material/Container";
@@ -11,7 +10,7 @@ const App = () => {
         Welcome to Adrian App{" "}
         <HomeIcon style={{ fontSize: 50, color: "blue" }} />
       </Typography>
-      <Typography variant="body1">
+      <Typography component={"span"} variant={"body2"}>
         <Main />
       </Typography>
     </Container>
