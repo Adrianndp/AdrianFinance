@@ -1,50 +1,51 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 
-function BasicChart() {
-  const chartOptions = {
+const BasicChart: React.FC<any> = ({ data }) => {
+  if (!data) {
+    return <div>No data to display</div>;
+  }
+  const chartOptions: ApexOptions = {
     chart: {
-      id: "basic-bar",
+      type: "candlestick",
+      height: 350,
+      width: 700,
+    },
+    title: {
+      text: "Sample Stock Prices Chart",
+      align: "left",
     },
     xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      type: "datetime",
+    },
+    yaxis: {
+      decimalsInFloat: 0,
+      tooltip: {
+        enabled: true,
+      },
     },
   };
 
   const chartSeries = [
     {
-      name: "Series 1",
-      data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 100, 130, 110],
+      data: data,
     },
   ];
 
   return (
     <div className="app">
       <div className="row">
-        <div className="mixed-chart">
+        <div id="demo" className="mixed-chart">
           <Chart
             options={chartOptions}
             series={chartSeries}
-            type="line"
-            width="500"
+            type="candlestick"
           />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default BasicChart;

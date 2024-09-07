@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import BasicChart from "./BasicChart";
+import StockSearchBar from "./StockSearchBar";
+import Navbar from "./Navbar";
 
-function StockPrices() {
+function Main() {
   const [stockName, setStockName] = useState("");
   const [data, setData] = useState(null);
 
@@ -22,18 +24,11 @@ function StockPrices() {
 
   return (
     <div>
-      <input
-        type="text"
-        onKeyDown={handleChange}
-        placeholder="Enter stock name and press Enter"
-        className="form-control text-uppercase"
-      />
-      <div>
-        {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : "Loading..."}
-      </div>
-      <BasicChart />
+      <StockSearchBar handleChange={handleChange} />
+      <Navbar />
+      <BasicChart data={data} />
     </div>
   );
 }
 
-export default StockPrices;
+export default Main;
