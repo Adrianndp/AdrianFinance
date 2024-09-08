@@ -4,8 +4,13 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import BasicChart from "./BasicChart";
 
-export default function Navbar() {
+interface NavbarProps {
+  data: any;
+}
+
+export default function Navbar({ data }: NavbarProps) {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -22,9 +27,11 @@ export default function Navbar() {
             <Tab label="Strategy" value="3" />
           </TabList>
         </Box>
-        <TabPanel value="1"></TabPanel>
+        <TabPanel value="1">
+          <BasicChart data={data} />
+        </TabPanel>
         <TabPanel value="2"></TabPanel>
-        <TabPanel value="3">t</TabPanel>
+        <TabPanel value="3"></TabPanel>
       </TabContext>
     </Box>
   );

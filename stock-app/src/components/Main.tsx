@@ -27,8 +27,7 @@ function Main() {
   return (
     <div>
       <StockSearchBar handleSubmit={handleSubmit} />
-      <Navbar />
-      <BasicChart data={data} />
+      <Navbar data={data} />
     </div>
   );
 }
