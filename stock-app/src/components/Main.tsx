@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import BasicChart from "./BasicChart";
 import StockSearchBar from "./StockSearchBar";
 import Navbar from "./Navbar";
+import BasicFooter from "./BasicFooter";
 
 function Main() {
   const [stockName, setStockName] = useState("");
@@ -28,6 +28,7 @@ function Main() {
     <div>
       <StockSearchBar handleSubmit={handleSubmit} />
       <Navbar data={data} />
+      <BasicFooter />
     </div>
   );
 }
