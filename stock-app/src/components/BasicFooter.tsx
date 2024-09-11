@@ -16,9 +16,9 @@ const BasicFooter = () => {
           © {new Date().getFullYear()} Adrian Stock
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {"Made with yfinance API "}
-          <Link color="inherit" href="https://yourwebsite.com">
-            Your Company
+          {"Select market data provided by yfinance API "}
+          <Link color="inherit" href="https://github.com/ranaroussi/yfinance">
+            yfinance
           </Link>
         </Typography>
       </Container>
