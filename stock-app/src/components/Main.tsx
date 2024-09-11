@@ -48,9 +48,8 @@ function Main() {
   };
 
   return (
-    <div>
+    <>
       <StockSearchBar handleSubmit={handleSubmit} />
-
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabPage}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -61,15 +60,18 @@ function Main() {
             </TabList>
           </Box>
           <TabPanel value="1">
+            {/* First Tab */}
             <BasicChart data={stockData} />
             <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
           </TabPanel>
           <TabPanel value="2"></TabPanel>
+          {/* Second Tab */}
           <TabPanel value="3"></TabPanel>
+          {/* Third Tab */}
         </TabContext>
       </Box>
       <BasicFooter />
-    </div>
+    </>
   );
 }
 
