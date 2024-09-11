@@ -7,6 +7,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import BasicChart from "./BasicChart";
+import StockDetail from "./StockDetail";
 
 // todo navbar not needed anymore
 
@@ -64,8 +65,10 @@ function Main() {
             <BasicChart data={stockData} />
             <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
           </TabPanel>
-          <TabPanel value="2"></TabPanel>
-          {/* Second Tab */}
+          <TabPanel value="2">
+            {/* Second Tab */}
+            <StockDetail />
+          </TabPanel>
           <TabPanel value="3"></TabPanel>
           {/* Third Tab */}
         </TabContext>
