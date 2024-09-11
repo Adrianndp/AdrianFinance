@@ -8,9 +8,10 @@ import BasicChart from "./BasicChart";
 
 interface NavbarProps {
   data: any;
+  stockInfo: any;
 }
 
-export default function Navbar({ data }: NavbarProps) {
+export default function Navbar({ data, stockInfo }: NavbarProps) {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -29,6 +30,7 @@ export default function Navbar({ data }: NavbarProps) {
         </Box>
         <TabPanel value="1">
           <BasicChart data={data} />
+          <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
         </TabPanel>
         <TabPanel value="2"></TabPanel>
         <TabPanel value="3"></TabPanel>
