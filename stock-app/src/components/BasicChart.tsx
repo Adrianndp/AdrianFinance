@@ -34,17 +34,7 @@ const BasicChart: React.FC<any> = ({ data }) => {
   ];
 
   return (
-    <div className="app">
-      <div className="row">
-        <div id="demo" className="mixed-chart">
-          <Chart
-            options={chartOptions}
-            series={chartSeries}
-            type="candlestick"
-          />
-        </div>
-      </div>
-    </div>
+    <Chart options={chartOptions} series={chartSeries} type="candlestick" />
   );
 };
 
