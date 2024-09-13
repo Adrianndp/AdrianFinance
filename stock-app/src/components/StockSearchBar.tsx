@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Autocomplete, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
+// TODO use at the HOME PAGE only
+
 const options = ["AAPL", "AMZN"];
 
 interface StockSearchBarProps {

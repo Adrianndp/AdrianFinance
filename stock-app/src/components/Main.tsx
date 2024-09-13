@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import StockSearchBar from "./StockSearchBar";
 import BasicFooter from "./BasicFooter";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -8,6 +7,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import BasicChart from "./BasicChart";
 import StockDetail from "./StockDetail";
+import Grid from "@mui/material/Grid2";
+import TopNavbar from "./TopNavbar";
 
 // todo navbar not needed anymore
 
@@ -50,7 +51,7 @@ function Main() {
 
   return (
     <>
-      <StockSearchBar handleSubmit={handleSubmit} />
+      <TopNavbar handleSubmit={handleSubmit} />
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabPage}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -61,9 +62,17 @@ function Main() {
             </TabList>
           </Box>
           <TabPanel value="1">
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid container spacing={2}>
+                <Grid size={8}>
+                  <BasicChart data={stockData} />
+                </Grid>
+                <Grid size={4}></Grid>
+              </Grid>
+            </Box>
             {/* First Tab */}
-            <BasicChart data={stockData} />
-            <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
+
+            {/*  <pre>{JSON.stringify(stockInfo, null, 2)}</pre> */}
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}
