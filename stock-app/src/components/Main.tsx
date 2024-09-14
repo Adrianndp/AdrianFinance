@@ -9,12 +9,17 @@ import BasicChart from "./BasicChart";
 import StockDetail from "./StockDetail";
 import Grid from "@mui/material/Grid2";
 import TopNavbar from "./TopNavbar";
+import TopStockCard from "./TopStockCard";
 
 // todo navbar not needed anymore
 
+interface StockInfo {
+  shortName: string;
+}
+
 function Main() {
   const [stockName, setStockName] = useState("");
-  const [stockInfo, setStockInfo] = useState(null);
+  const [stockInfo, setStockInfo] = useState<StockInfo | null>(null);
   const [stockData, setStockData] = useState(null);
   const [tabPage, setTabPage] = React.useState("1");
 
@@ -55,7 +60,11 @@ function Main() {
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabPage}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <TabList
+              onChange={handleChange}
+              aria-label="lab API tabs example"
+              variant="fullWidth"
+            >
               <Tab label="Overview" value="1" />
               <Tab label="Details" value="2" />
               <Tab label="Strategy" value="3" />
@@ -65,21 +74,35 @@ function Main() {
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
                 <Grid size={8}>
-                  <BasicChart data={stockData} />
+                  {stockInfo && stockInfo.shortName ? (
+                    <BasicChart
+                      title={stockInfo.shortName + " Chart"}
+                      data={stockData}
+                    />
+                  ) : (
+                    <></>
+                  )}
                 </Grid>
-                <Grid size={4}></Grid>
+                <Grid size={4}>
+                  <TopStockCard
+                    stock={{
+                      name: "Apple",
+                      image: "/images/apple--big.svg",
+                      changePercentage: 2.35,
+                    }}
+                  />
+                </Grid>
               </Grid>
             </Box>
             {/* First Tab */}
 
-            {/*  <pre>{JSON.stringify(stockInfo, null, 2)}</pre> */}
+            <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}
             <StockDetail />
           </TabPanel>
-          <TabPanel value="3"></TabPanel>
-          {/* Third Tab */}
+          <TabPanel value="3">{/* Third Tab */}</TabPanel>
         </TabContext>
       </Box>
       <BasicFooter />

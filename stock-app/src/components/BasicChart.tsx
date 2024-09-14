@@ -2,7 +2,7 @@ import React from "react";
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 
-const BasicChart: React.FC<any> = ({ data }) => {
+const BasicChart: React.FC<any> = ({ title, data }) => {
   if (data === undefined || data === null || !Array.isArray(data)) {
     return <>No data to display</>;
   }
@@ -13,7 +13,7 @@ const BasicChart: React.FC<any> = ({ data }) => {
       width: 700,
     },
     title: {
-      text: "Sample Stock Prices Chart",
+      text: title,
       align: "left",
     },
     xaxis: {
