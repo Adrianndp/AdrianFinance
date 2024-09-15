@@ -4,7 +4,7 @@ import { ApexOptions } from "apexcharts";
 
 const BasicChart: React.FC<any> = ({ title, data }) => {
   if (data === undefined || data === null || !Array.isArray(data)) {
-    return <>No data to display</>;
+    return <>Loading chart...</>;
   }
   const chartOptions: ApexOptions = {
     chart: {

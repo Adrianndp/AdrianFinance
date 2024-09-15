@@ -3,6 +3,7 @@ export interface StockData {
     price: number;
     change: number;
     percentage_change: number;
+    image_name: string;
   }
   
   export interface TopStockData {

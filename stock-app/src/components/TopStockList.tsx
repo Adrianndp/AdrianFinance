@@ -33,7 +33,7 @@ const TopStockList = ({ stockData }: { stockData: TopStockData }) => {
               {/* Stock Avatar */}
               <Avatar
                 alt={stock.name}
-                src={`/images/${stock.image}`}
+                src={`/images/${stock.image_name}`}
                 sx={{ width: 40, height: 40, marginRight: 1 }}
               />
 
