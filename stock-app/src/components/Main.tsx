@@ -9,19 +9,23 @@ import BasicChart from "./BasicChart";
 import StockDetail from "./StockDetail";
 import Grid from "@mui/material/Grid2";
 import TopNavbar from "./TopNavbar";
-import TopStockCard from "./TopStockCard";
+import TopStockList from "./TopStockList";
 
 // todo navbar not needed anymore
-
-interface StockInfo {
-  shortName: string;
-}
 
 function Main() {
   const [stockName, setStockName] = useState("");
   const [stockInfo, setStockInfo] = useState<StockInfo | null>(null);
+  const [topStocks, setTopStocks] = useState<TopStockData | null>(null);
   const [stockData, setStockData] = useState(null);
   const [tabPage, setTabPage] = React.useState("1");
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/top_stocks/`)
+      .then((response) => response.json())
+      .then((json) => setTopStocks(json))
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
     // Simulating data fetching
@@ -84,19 +88,15 @@ function Main() {
                   )}
                 </Grid>
                 <Grid size={4}>
-                  <TopStockCard
-                    stock={{
-                      name: "Apple",
-                      image: "/images/apple--big.svg",
-                      changePercentage: 2.35,
-                    }}
-                  />
+                  {topStocks ? (
+                    <TopStockList stockData={topStocks} />
+                  ) : (
+                    <p>Loading top stocks...</p>
+                  )}
                 </Grid>
               </Grid>
             </Box>
             {/* First Tab */}
-
-            <pre>{JSON.stringify(stockInfo, null, 2)}</pre>
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}

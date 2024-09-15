@@ -53,12 +53,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-interface StockSearchBarProps {
-  handleSubmit: (
-    event: React.FormEvent<HTMLFormElement>,
-    value: string
-  ) => void;
-}
 const TopNavbar: React.FC<StockSearchBarProps> = ({ handleSubmit }) => {
   const [inputValue, setInputValue] = useState("");
 

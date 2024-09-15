@@ -6,13 +6,6 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const options = ["AAPL", "AMZN"];
 
-interface StockSearchBarProps {
-  handleSubmit: (
-    event: React.FormEvent<HTMLFormElement>,
-    value: string
-  ) => void;
-}
-
 const StockSearchBar: React.FC<StockSearchBarProps> = ({ handleSubmit }) => {
   const [inputValue, setInputValue] = useState("");
 
