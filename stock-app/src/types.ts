@@ -1,26 +1,26 @@
-interface StockData {
+export interface StockData {
     name: string;
     price: number;
     change: number;
     percentage_change: number;
   }
   
-  interface TopStockData {
+  export interface TopStockData {
     symbol: string;
     data: StockData;
   }
   
-  interface StockInfo {
+  export interface StockInfo {
     shortName: string;
   }
   
-  interface StockSearchBarProps {
+  export interface StockSearchBarProps {
     handleSubmit: (
       event: React.FormEvent<HTMLFormElement>,
       value: string
     ) => void;
   }
-  interface StockSearchBarProps {
+  export interface StockSearchBarProps {
     handleSubmit: (
       event: React.FormEvent<HTMLFormElement>,
       value: string

@@ -10,6 +10,7 @@ import StockDetail from "./StockDetail";
 import Grid from "@mui/material/Grid2";
 import TopNavbar from "./TopNavbar";
 import TopStockList from "./TopStockList";
+import { StockInfo, TopStockData } from "../types";
 
 // todo navbar not needed anymore
 

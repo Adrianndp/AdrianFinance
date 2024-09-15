@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Autocomplete, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { StockSearchBarProps } from "../types";
 
 // TODO use at the HOME PAGE only
 
