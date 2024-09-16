@@ -57,12 +57,13 @@ const TopNavbar: React.FC<StockSearchBarProps> = ({ handleSubmit }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value); // Update input value based on the event
+    setInputValue(event.target.value.toUpperCase());
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     handleSubmit(event, inputValue);
+    setInputValue("");
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
