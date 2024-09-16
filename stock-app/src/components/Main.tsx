@@ -88,7 +88,8 @@ function Main() {
                     <></>
                   )}
                 </Grid>
-                <Grid size={4}>
+                <Grid size={2}>
+                  Top Stocks
                   {topStocks ? (
                     <TopStockList stockData={topStocks} />
                   ) : (

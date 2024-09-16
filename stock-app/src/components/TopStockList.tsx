@@ -24,7 +24,6 @@ const TopStockList = ({ stockData }: { stockData: TopStockData }) => {
                 alignItems: "center",
                 padding: 1,
                 minWidth: 300,
-                marginBottom: 1,
                 maxWidth: "100%",
                 boxShadow: 1,
                 cursor: "pointer",
