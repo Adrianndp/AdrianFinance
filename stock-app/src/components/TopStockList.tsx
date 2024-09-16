@@ -9,10 +9,13 @@ import {
 } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { TopStockData } from "../types";
 import { Fragment } from "react/jsx-runtime";
+import { TopStockListProps } from "../types";
 
-const TopStockList = ({ stockData }: { stockData: TopStockData }) => {
+const TopStockList: React.FC<TopStockListProps> = ({
+  stockData,
+  handleSubmit,
+}) => {
   return (
     <Fragment>
       <Typography
@@ -28,6 +31,7 @@ const TopStockList = ({ stockData }: { stockData: TopStockData }) => {
           return (
             <ListItem key={key}>
               <Card
+                onClick={() => handleSubmit(null, stock.symbol)}
                 sx={{
                   display: "flex",
                   alignItems: "center",

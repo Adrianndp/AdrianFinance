@@ -52,10 +52,14 @@ function Main() {
   };
 
   const handleSubmit = (
-    event: React.FormEvent<HTMLFormElement>,
+    event: React.FormEvent<HTMLFormElement> | null,
     value: string
   ) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top when clicking one top stock
+    }
     setStockName(value.toUpperCase());
   };
 
@@ -90,7 +94,10 @@ function Main() {
                 </Grid>
                 <Grid size={2}>
                   {topStocks ? (
-                    <TopStockList stockData={topStocks} />
+                    <TopStockList
+                      stockData={topStocks}
+                      handleSubmit={handleSubmit}
+                    />
                   ) : (
                     <p>Loading top stocks...</p>
                   )}
