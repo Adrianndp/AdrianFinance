@@ -24,5 +24,16 @@ export interface StockData {
   }
 
   export interface TopStockListProps extends StockSearchBarProps {
-    stockData: TopStockData;
+    topStockDataList: TopStockData;
+  }
+
+  export interface NeswData {
+    title: string;
+    url: string;
+    image_url: string | null;
+  }
+
+
+  export interface StockNewsProps {
+    newsDataList: NeswData[];
   }

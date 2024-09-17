@@ -13,7 +13,7 @@ import { Fragment } from "react/jsx-runtime";
 import { TopStockListProps } from "../types";
 
 const TopStockList: React.FC<TopStockListProps> = ({
-  stockData,
+  topStockDataList,
   handleSubmit,
 }) => {
   return (
@@ -26,7 +26,7 @@ const TopStockList: React.FC<TopStockListProps> = ({
         Market Titans
       </Typography>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-        {Object.entries(stockData).map(([key, stock]) => {
+        {Object.entries(topStockDataList).map(([key, stock]) => {
           const isPositive = stock.percentage_change > 0;
           return (
             <ListItem key={key}>
@@ -40,9 +40,9 @@ const TopStockList: React.FC<TopStockListProps> = ({
                   maxWidth: "100%",
                   boxShadow: 1,
                   cursor: "pointer",
+                  maxHeight: 50,
                 }}
               >
-                {/* Stock Avatar */}
                 <Avatar
                   alt={stock.name}
                   src={`/images/${stock.image_name}`}

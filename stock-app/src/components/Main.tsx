@@ -10,7 +10,8 @@ import StockDetail from "./StockDetail";
 import Grid from "@mui/material/Grid2";
 import TopNavbar from "./TopNavbar";
 import TopStockList from "./TopStockList";
-import { StockInfo, TopStockData } from "../types";
+import StockNews from "./StockNews";
+import { StockInfo, TopStockData, NeswData } from "../types";
 
 // todo navbar not needed anymore
 
@@ -18,6 +19,7 @@ function Main() {
   const [stockName, setStockName] = useState("");
   const [stockInfo, setStockInfo] = useState<StockInfo | null>(null);
   const [topStocks, setTopStocks] = useState<TopStockData | null>(null);
+  const [newsData, setNewsData] = useState<NeswData[] | null>(null);
   const [stockData, setStockData] = useState(null);
   const [tabPage, setTabPage] = React.useState("1");
 
@@ -34,6 +36,15 @@ function Main() {
       fetch(`http://127.0.0.1:8000/stock_info/?stock_name=${stockName}`)
         .then((response) => response.json())
         .then((json) => setStockInfo(json))
+        .catch((error) => console.error(error));
+    }
+  }, [stockName]); // Only re-run the effect if stockName changes
+
+  useEffect(() => {
+    if (stockName) {
+      fetch(`http://127.0.0.1:8000/stock_news/?stock_name=${stockName}`)
+        .then((response) => response.json())
+        .then((json) => setNewsData(json))
         .catch((error) => console.error(error));
     }
   }, [stockName]); // Only re-run the effect if stockName changes
@@ -80,8 +91,10 @@ function Main() {
             </TabList>
           </Box>
           <TabPanel value="1">
+            {/* First Tab */}
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
+                {/* Right Side 8 */}
                 <Grid size={8}>
                   {stockInfo && stockInfo.shortName ? (
                     <BasicChart
@@ -91,11 +104,15 @@ function Main() {
                   ) : (
                     <></>
                   )}
+                  {newsData && newsData.length > 0 ? (
+                    <StockNews newsDataList={newsData} />
+                  ) : null}
                 </Grid>
-                <Grid size={2}>
+                {/* Left Side 4 */}
+                <Grid size={4}>
                   {topStocks ? (
                     <TopStockList
-                      stockData={topStocks}
+                      topStockDataList={topStocks}
                       handleSubmit={handleSubmit}
                     />
                   ) : (
@@ -104,7 +121,6 @@ function Main() {
                 </Grid>
               </Grid>
             </Box>
-            {/* First Tab */}
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}
