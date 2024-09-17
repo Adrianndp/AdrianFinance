@@ -29,7 +29,7 @@ const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
                   maxWidth: "100%",
                   boxShadow: 1,
                   cursor: "pointer",
-                  maxHeight: 100, // Adjusted to fit content nicely
+                  maxHeight: 120, // Adjusted to fit content nicely
                   width: 700,
                 }}
                 onClick={() => window.open(newsData.url, "_blank")} // Open the link in a new tab
@@ -37,10 +37,21 @@ const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
                 <Avatar
                   alt={newsData.title}
                   src={newsData.image_url || fallbackImage}
-                  sx={{ width: 40, height: 40, marginRight: 1 }}
+                  sx={{ width: 50, height: 50, marginRight: 1 }}
                 />
                 <CardContent sx={{ flex: "1 0 auto" }}>
-                  <Typography variant="body2" noWrap>
+                  <Typography
+                    variant="body2"
+                    noWrap
+                    sx={{
+                      textOverflow: "ellipsis",
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                      maxWidth: "80%",
+                      fontWeight: "bold",
+                      color: "#1976d2",
+                    }}
+                  >
                     {newsData.title}
                   </Typography>
                 </CardContent>
