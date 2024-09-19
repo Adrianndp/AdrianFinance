@@ -16,7 +16,7 @@ import { StockInfo, TopStockData, NeswData } from "../types";
 // todo navbar not needed anymore
 
 function Main() {
-  const [stockName, setStockName] = useState("");
+  const [stockName, setStockName] = useState("AAPL");
   const [stockInfo, setStockInfo] = useState<StockInfo | null>(null);
   const [topStocks, setTopStocks] = useState<TopStockData | null>(null);
   const [newsData, setNewsData] = useState<NeswData[] | null>(null);
