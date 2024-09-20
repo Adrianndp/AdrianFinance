@@ -13,7 +13,28 @@ export interface StockData {
   }
   
   export interface StockInfo {
+    // Company Information
     shortName: string;
+    address1: string;
+    city: string;
+    state: string;
+    country: string;
+    website: string;
+    indestryDisp: string;
+    sectorDisp: string;
+    longBusinessSummary: string;
+    // Stock Price and Trading Data
+    currentPrice: number;
+    marketCap: number;
+    // Performance Metrics
+    priceToBook: number;
+    returnOnAssets: number;
+    returnOnEquity: number;
+    // Stock Data
+    sharesOutstanding: number;
+    floatShares: number;
+    sharesShort: number;
+    shortRatio: number;
   }
 
   export interface StockSearchBarProps {

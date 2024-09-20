@@ -124,7 +124,7 @@ function Main() {
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}
-            <StockDetail />
+            {stockInfo && <StockDetail stockInfo={stockInfo} />}
           </TabPanel>
           <TabPanel value="3">{/* Third Tab */}</TabPanel>
         </TabContext>
