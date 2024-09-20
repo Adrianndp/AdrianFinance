@@ -119,6 +119,7 @@ function Main() {
                   ) : (
                     <p>Loading top stocks...</p>
                   )}
+                  <img src="/svgs/doge.svg" alt="Doge" />
                 </Grid>
               </Grid>
             </Box>
