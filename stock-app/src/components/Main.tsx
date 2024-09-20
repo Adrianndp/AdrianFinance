@@ -11,6 +11,7 @@ import Grid from "@mui/material/Grid2";
 import TopNavbar from "./TopNavbar";
 import TopStockList from "./TopStockList";
 import StockNews from "./StockNews";
+import SemiGauge from "./SemiGauge";
 import { StockInfo, TopStockData, NeswData } from "../types";
 
 // todo navbar not needed anymore
@@ -94,7 +95,7 @@ function Main() {
             {/* First Tab */}
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
-                {/* Right Side 8 */}
+                {/* Left Side 8 */}
                 <Grid size={8}>
                   {stockInfo && stockInfo.shortName ? (
                     <BasicChart
@@ -108,7 +109,7 @@ function Main() {
                     <StockNews newsDataList={newsData} />
                   ) : null}
                 </Grid>
-                {/* Left Side 4 */}
+                {/* Right Side 4 */}
                 <Grid size={4}>
                   {topStocks ? (
                     <TopStockList
@@ -126,7 +127,10 @@ function Main() {
             {/* Second Tab */}
             {stockInfo && <StockDetail stockInfo={stockInfo} />}
           </TabPanel>
-          <TabPanel value="3">{/* Third Tab */}</TabPanel>
+          <TabPanel value="3">
+            {/* Third Tab */}
+            <SemiGauge title="Strong Buy" data={0.75} />
+          </TabPanel>
         </TabContext>
       </Box>
       <BasicFooter />
