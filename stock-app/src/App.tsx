@@ -6,7 +6,7 @@ import Home from "./components/Home";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Container maxWidth="lg">
         <Typography component={"span"} variant={"body2"}>
           {/* Define Routes */}
