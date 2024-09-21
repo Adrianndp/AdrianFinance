@@ -1,32 +1,25 @@
-import {
-  Card,
-  Avatar,
-  CardContent,
-  Typography,
-  List,
-  ListItem,
-} from "@mui/material";
-import { Fragment } from "react/jsx-runtime";
+import { Card, Avatar, CardContent, Typography, Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { Fragment } from "react";
 import { StockNewsProps } from "../types"; // Assuming this is updated to reflect the news structure
 
 const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
   const fallbackImage = `${process.env.PUBLIC_URL}/images/logo.svg`;
+
   return (
     <Fragment>
-      <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-        {newsDataList.map((newsData, index) => {
-          return (
-            <ListItem key={index}>
+      <Box sx={{ flexGrow: 1, bgcolor: "background.paper", padding: 2 }}>
+        <Grid container spacing={2}>
+          {newsDataList.map((newsData, index) => (
+            <Grid xs={12} sm={12} md={6} lg={6} key={index}>
               <Card
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   padding: 1,
-                  maxWidth: "100%",
+                  height: "100%", // Ensures full height of grid item
                   boxShadow: 1,
                   cursor: "pointer",
-                  maxHeight: 120, // Adjusted to fit content nicely
-                  width: 700,
                 }}
                 onClick={() => window.open(newsData.url, "_blank")} // Open the link in a new tab
               >
@@ -52,10 +45,10 @@ const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
                   </Typography>
                 </CardContent>
               </Card>
-            </ListItem>
-          );
-        })}
-      </List>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Fragment>
   );
 };

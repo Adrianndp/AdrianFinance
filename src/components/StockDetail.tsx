@@ -1,17 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Link, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-
-interface StockInfo {
-  shortName: string;
-  address1: string;
-  city: string;
-  state: string;
-  country: string;
-  website: string;
-  sectorDisp: string;
-  longBusinessSummary: string;
-}
+import { StockInfo } from "../types";
 
 const StockDetail: React.FC<{ stockInfo: StockInfo }> = ({ stockInfo }) => {
   return (
