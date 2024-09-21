@@ -68,7 +68,10 @@ const TopNavbar: React.FC<StockSearchBarProps> = ({ handleSubmit }) => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <img src="/images/logo.svg" alt="stock-market" />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/logo.svg`}
+            alt="stock-market"
+          />
           <Typography
             variant="h6"
             noWrap

@@ -45,7 +45,7 @@ const TopStockList: React.FC<TopStockListProps> = ({
               >
                 <Avatar
                   alt={stock.name}
-                  src={`/images/${stock.image_name}`}
+                  src={`${process.env.PUBLIC_URL}/images/${stock.image_name}`}
                   sx={{ width: 40, height: 40, marginRight: 1 }}
                 />
 

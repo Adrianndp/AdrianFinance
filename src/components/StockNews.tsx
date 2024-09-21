@@ -10,7 +10,7 @@ import { Fragment } from "react/jsx-runtime";
 import { StockNewsProps } from "../types"; // Assuming this is updated to reflect the news structure
 
 const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
-  const fallbackImage = "/images/logo.svg";
+  const fallbackImage = `${process.env.PUBLIC_URL}/images/logo.svg`;
   return (
     <Fragment>
       <Typography variant="subtitle1" sx={{ fontWeight: "bold" }} gutterBottom>

@@ -120,7 +120,10 @@ function Main() {
                   ) : (
                     <p>Loading top stocks...</p>
                   )}
-                  <img src="/svgs/doge.svg" alt="Doge" />
+                  <img
+                    src={`${process.env.PUBLIC_URL}/svgs/doge.svg`}
+                    alt="Doge"
+                  />
                 </Grid>
               </Grid>
             </Box>
