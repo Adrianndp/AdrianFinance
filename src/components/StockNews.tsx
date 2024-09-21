@@ -13,9 +13,6 @@ const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
   const fallbackImage = `${process.env.PUBLIC_URL}/images/logo.svg`;
   return (
     <Fragment>
-      <Typography variant="subtitle1" sx={{ fontWeight: "bold" }} gutterBottom>
-        News
-      </Typography>
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         {newsDataList.map((newsData, index) => {
           return (

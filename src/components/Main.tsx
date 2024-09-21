@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BasicFooter from "./BasicFooter";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -106,9 +107,6 @@ function Main() {
                   ) : (
                     <></>
                   )}
-                  {newsData && newsData.length > 0 ? (
-                    <StockNews newsDataList={newsData} />
-                  ) : null}
                 </Grid>
                 {/* Right Side 4 */}
                 <Grid size={4}>
@@ -134,7 +132,16 @@ function Main() {
           </TabPanel>
           <TabPanel value="3">
             {/* Third Tab */}
-            <SemiGauge title="Strong Buy" data={0.75} />
+            <Typography variant="h5" gutterBottom>
+              Company Information
+            </Typography>
+            <SemiGauge title="Strong Buy" data={0.85} />
+            <Typography variant="h5" gutterBottom>
+              News
+            </Typography>
+            {newsData && newsData.length > 0 ? (
+              <StockNews newsDataList={newsData} />
+            ) : null}
           </TabPanel>
         </TabContext>
       </Box>
