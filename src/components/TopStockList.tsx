@@ -17,8 +17,8 @@ const TopStockList: React.FC<TopStockListProps> = ({
   return (
     <Box sx={{ flexGrow: 1, padding: 2 }}>
       <Typography
-        variant="subtitle1"
-        sx={{ textAlign: "center", fontWeight: "bold", marginBottom: 2 }}
+        variant="h4"
+        sx={{ marginTop: 2, marginBottom: 3 }}
         gutterBottom
       >
         Market Titans
