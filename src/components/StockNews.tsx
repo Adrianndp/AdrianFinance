@@ -11,7 +11,7 @@ const StockNews: React.FC<StockNewsProps> = ({ newsDataList }) => {
       <Box sx={{ flexGrow: 1, bgcolor: "background.paper", padding: 2 }}>
         <Grid container spacing={2}>
           {newsDataList.map((newsData, index) => (
-            <Grid xs={12} sm={12} md={6} lg={6} key={index}>
+            <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
               <Card
                 sx={{
                   display: "flex",

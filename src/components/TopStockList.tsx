@@ -27,7 +27,7 @@ const TopStockList: React.FC<TopStockListProps> = ({
         {Object.entries(topStockDataList).map(([key, stock]) => {
           const isPositive = stock.percentage_change > 0;
           return (
-            <Grid xs={12} sm={12} md={6} lg={6} key={key}>
+            <Grid item xs={12} sm={12} md={6} lg={6} key={key}>
               <Card
                 onClick={() => handleSubmit(null, stock.symbol)}
                 sx={{
