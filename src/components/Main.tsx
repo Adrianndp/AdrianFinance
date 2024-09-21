@@ -14,7 +14,7 @@ import TopStockList from "./TopStockList";
 import StockNews from "./StockNews";
 import SemiGauge from "./SemiGauge";
 import CircularProgress from "@mui/material/CircularProgress";
-import { StockInfo, TopStockData, NeswData } from "../types";
+import { StockInfo, TopStockData, NeswData, CurrentPriceData } from "../types";
 
 // https://thread-hot-middle.glitch.me
 // http://127.0.0.1:8000
@@ -25,6 +25,8 @@ function Main() {
   const [stockInfo, setStockInfo] = useState<StockInfo | null>(null);
   const [topStocks, setTopStocks] = useState<TopStockData | null>(null);
   const [newsData, setNewsData] = useState<NeswData[] | null>(null);
+  const [currentPriceData, setCurrentPriceData] =
+    useState<CurrentPriceData | null>(null);
   const [stockData, setStockData] = useState(null);
   const [tabPage, setTabPage] = React.useState("1");
 
@@ -50,6 +52,15 @@ function Main() {
       fetch(`${url}/stock_news/?stock_name=${stockName}`)
         .then((response) => response.json())
         .then((json) => setNewsData(json))
+        .catch((error) => console.error(error));
+    }
+  }, [stockName]); // Only re-run the effect if stockName changes
+
+  useEffect(() => {
+    if (stockName) {
+      fetch(`${url}/stock_current_price_data/?stock_name=${stockName}`)
+        .then((response) => response.json())
+        .then((json) => setCurrentPriceData(json))
         .catch((error) => console.error(error));
     }
   }, [stockName]); // Only re-run the effect if stockName changes
@@ -97,14 +108,38 @@ function Main() {
           </Box>
           <TabPanel value="1">
             {/* First Tab */}
+            {currentPriceData && (
+              <div>
+                <Typography variant="h4" component="div">
+                  {currentPriceData.name}
+                </Typography>
+
+                <Typography variant="h4" component="div">
+                  {currentPriceData.price}{" "}
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{ fontSize: "0.4em" }} // Adjust size to your preference
+                  >
+                    {currentPriceData.currency}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{ fontSize: "0.6em" }} // Adjust size to your preference
+                  >
+                    {" "}
+                    {currentPriceData.change}{" "}
+                    {currentPriceData.percentage_change}%
+                  </Typography>
+                </Typography>
+              </div>
+            )}
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
                 <Grid size={12}>
                   {stockInfo && stockInfo.shortName ? (
-                    <BasicChart
-                      title={stockInfo.shortName + " Chart"}
-                      data={stockData}
-                    />
+                    <BasicChart data={stockData} />
                   ) : (
                     <></>
                   )}

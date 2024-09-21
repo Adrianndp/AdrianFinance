@@ -4,7 +4,7 @@ import { ApexOptions } from "apexcharts";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-const BasicChart: React.FC<any> = ({ title, data }) => {
+const BasicChart: React.FC<any> = ({ data }) => {
   if (data === undefined || data === null || !Array.isArray(data)) {
     return (
       <Box sx={{ display: "flex" }}>
@@ -17,10 +17,6 @@ const BasicChart: React.FC<any> = ({ title, data }) => {
       type: "candlestick",
       height: 350,
       width: 700,
-    },
-    title: {
-      text: title,
-      align: "left",
     },
     xaxis: {
       type: "datetime",

@@ -11,6 +11,14 @@ export interface StockData {
     symbol: string;
     data: StockData;
   }
+
+  export interface CurrentPriceData {
+    name: string;
+    currency: string;
+    price: number;
+    change: number;
+    percentage_change: number;
+  } 
   
   export interface StockInfo {
     // Company Information
