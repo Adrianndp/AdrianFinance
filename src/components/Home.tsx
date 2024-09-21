@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../Home.css"; // Make sure to import your CSS file
 import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 
 const Home = () => {
   const [fixme, setFixme] = useState(false);
@@ -65,12 +67,23 @@ const Home = () => {
         <Typography variant="h4" gutterBottom>
           How Adrian Finance Works
         </Typography>
-        <p>
-          Adrian Finance makes it easy to track stocks and cryptocurrencies in
-          real-time. Simply enter the stock or crypto symbol of the company or
-          currency you want to track, and the app will provide you with detailed
-          data and charts.
-        </p>
+
+        <Typography variant="h6">
+          Analyse your favorite stocks{" "}
+          <ShowChartIcon sx={{ color: "green", marginRight: 1 }} />
+        </Typography>
+
+        <Typography variant="h6">
+          Create Strategies before investing{" "}
+          <AttachMoneyIcon
+            sx={{ color: "gold", marginLeft: 2, marginRight: 1 }}
+          />
+        </Typography>
+
+        <Typography variant="body1">
+          Search for your favorite Stocks Like Apple, Tesla, Amazon, etc. By
+          their stock name <strong>AAPL, TSLA, AMZN</strong>
+        </Typography>
 
         <p style={{ textAlign: "center" }}>
           <Link
