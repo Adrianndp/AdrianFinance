@@ -126,7 +126,13 @@ function Main() {
           </TabPanel>
           <TabPanel value="2">
             {/* Second Tab */}
-            {stockInfo && <StockDetail stockInfo={stockInfo} />}
+            {stockInfo ? (
+              <StockDetail stockInfo={stockInfo} />
+            ) : (
+              <Box sx={{ display: "flex" }}>
+                <CircularProgress />
+              </Box>
+            )}
           </TabPanel>
           <TabPanel value="3">
             {/* Third Tab */}
@@ -139,7 +145,11 @@ function Main() {
             </Typography>
             {newsData && newsData.length > 0 ? (
               <StockNews newsDataList={newsData} />
-            ) : null}
+            ) : (
+              <Box sx={{ display: "flex" }}>
+                <CircularProgress />
+              </Box>
+            )}
           </TabPanel>
         </TabContext>
       </Box>
