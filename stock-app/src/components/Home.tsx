@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Home.css"; // Make sure to import your CSS file
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [fixme, setFixme] = useState(false);
@@ -97,9 +98,12 @@ const Home = () => {
         </ul>
 
         <p style={{ textAlign: "center" }}>
-          <a style={{ fontSize: "xx-large" }} href="main">
+          <Link
+            to="/main"
+            style={{ fontSize: "xx-large", textAlign: "center" }}
+          >
             Try it out!
-          </a>
+          </Link>
         </p>
         <p>
           Welcome to Adrian Finance! your go-to platform for navigating the

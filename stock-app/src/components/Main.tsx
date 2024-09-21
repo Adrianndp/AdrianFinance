@@ -14,7 +14,8 @@ import StockNews from "./StockNews";
 import SemiGauge from "./SemiGauge";
 import { StockInfo, TopStockData, NeswData } from "../types";
 
-// todo navbar not needed anymore
+// http://127.0.0.1:8000
+const url: string = "https://thread-hot-middle.glitch.me";
 
 function Main() {
   const [stockName, setStockName] = useState("AAPL");
@@ -25,7 +26,7 @@ function Main() {
   const [tabPage, setTabPage] = React.useState("1");
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/top_stocks/`)
+    fetch(`${url}/top_stocks/`)
       .then((response) => response.json())
       .then((json) => setTopStocks(json))
       .catch((error) => console.error(error));
@@ -34,7 +35,7 @@ function Main() {
   useEffect(() => {
     // Simulating data fetching
     if (stockName) {
-      fetch(`http://127.0.0.1:8000/stock_info/?stock_name=${stockName}`)
+      fetch(`${url}/stock_info/?stock_name=${stockName}`)
         .then((response) => response.json())
         .then((json) => setStockInfo(json))
         .catch((error) => console.error(error));
@@ -43,7 +44,7 @@ function Main() {
 
   useEffect(() => {
     if (stockName) {
-      fetch(`http://127.0.0.1:8000/stock_news/?stock_name=${stockName}`)
+      fetch(`${url}/stock_news/?stock_name=${stockName}`)
         .then((response) => response.json())
         .then((json) => setNewsData(json))
         .catch((error) => console.error(error));
@@ -52,7 +53,7 @@ function Main() {
 
   useEffect(() => {
     if (stockName) {
-      fetch(`http://127.0.0.1:8000/stock_prices/?stock_name=${stockName}`)
+      fetch(`${url}/stock_prices/?stock_name=${stockName}`)
         .then((response) => response.json())
         .then((json) => setStockData(json))
         .catch((error) => console.error(error));
