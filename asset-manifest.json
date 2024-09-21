@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/AdrianFinance/static/css/main.a1de57a5.css",
-    "main.js": "/AdrianFinance/static/js/main.21d3c6c5.js",
+    "main.js": "/AdrianFinance/static/js/main.4d302c17.js",
     "static/js/453.d81a277e.chunk.js": "/AdrianFinance/static/js/453.d81a277e.chunk.js",
     "index.html": "/AdrianFinance/index.html",
     "main.a1de57a5.css.map": "/AdrianFinance/static/css/main.a1de57a5.css.map",
-    "main.21d3c6c5.js.map": "/AdrianFinance/static/js/main.21d3c6c5.js.map",
+    "main.4d302c17.js.map": "/AdrianFinance/static/js/main.4d302c17.js.map",
     "453.d81a277e.chunk.js.map": "/AdrianFinance/static/js/453.d81a277e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a1de57a5.css",
-    "static/js/main.21d3c6c5.js"
+    "static/js/main.4d302c17.js"
   ]
 }
