@@ -13,6 +13,7 @@ import TopNavbar from "./TopNavbar";
 import TopStockList from "./TopStockList";
 import StockNews from "./StockNews";
 import SemiGauge from "./SemiGauge";
+import CircularProgress from "@mui/material/CircularProgress";
 import { StockInfo, TopStockData, NeswData } from "../types";
 
 // https://thread-hot-middle.glitch.me
@@ -113,7 +114,9 @@ function Main() {
                       handleSubmit={handleSubmit}
                     />
                   ) : (
-                    <p>Loading top stocks...</p>
+                    <Box sx={{ display: "flex" }}>
+                      <CircularProgress />
+                    </Box>
                   )}
                 </Grid>
                 {/* Right Side 4 */}
