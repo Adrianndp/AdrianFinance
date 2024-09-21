@@ -13,7 +13,7 @@ const BasicFooter = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="body1">
-          © {new Date().getFullYear()} Adrian Stock
+          © {new Date().getFullYear()} Adrian Finance
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {"Select market data provided by yfinance API "}

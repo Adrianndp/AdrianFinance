@@ -15,6 +15,7 @@ import StockNews from "./StockNews";
 import SemiGauge from "./SemiGauge";
 import { StockInfo, TopStockData, NeswData } from "../types";
 
+// https://thread-hot-middle.glitch.me
 // http://127.0.0.1:8000
 const url: string = "https://thread-hot-middle.glitch.me";
 
@@ -97,8 +98,7 @@ function Main() {
             {/* First Tab */}
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
-                {/* Left Side 8 */}
-                <Grid size={8}>
+                <Grid size={12}>
                   {stockInfo && stockInfo.shortName ? (
                     <BasicChart
                       title={stockInfo.shortName + " Chart"}
@@ -107,9 +107,6 @@ function Main() {
                   ) : (
                     <></>
                   )}
-                </Grid>
-                {/* Right Side 4 */}
-                <Grid size={4}>
                   {topStocks ? (
                     <TopStockList
                       topStockDataList={topStocks}
@@ -118,11 +115,9 @@ function Main() {
                   ) : (
                     <p>Loading top stocks...</p>
                   )}
-                  <img
-                    src={`${process.env.PUBLIC_URL}/svgs/doge.svg`}
-                    alt="Doge"
-                  />
                 </Grid>
+                {/* Right Side 4 */}
+                <Grid size={4}></Grid>
               </Grid>
             </Box>
           </TabPanel>
