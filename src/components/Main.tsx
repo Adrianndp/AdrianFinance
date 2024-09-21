@@ -89,7 +89,6 @@ function Main() {
     }
     setStockName(value.toUpperCase());
   };
-
   return (
     <>
       <TopNavbar handleSubmit={handleSubmit} />
@@ -126,11 +125,17 @@ function Main() {
                   <Typography
                     variant="body2"
                     component="span"
-                    sx={{ fontSize: "0.6em" }} // Adjust size to your preference
+                    sx={{
+                      fontSize: "0.6em",
+                      color:
+                        currentPriceData.percentage_change > 0
+                          ? "green"
+                          : "red",
+                    }} // Adjust size to your preference
                   >
                     {" "}
-                    {currentPriceData.change}{" "}
-                    {currentPriceData.percentage_change}%
+                    {currentPriceData.change.toFixed(2)}{" "}
+                    {currentPriceData.percentage_change.toFixed(2)}%
                   </Typography>
                 </Typography>
               </div>
