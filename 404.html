@@ -1,5 +1,39 @@
-<h1>
-    Oops Something went wrong
-</h1>
-<img style="margin-top: 20px; width: 50%; height: 50%;" src="%PUBLIC_URL%/images/doge.svg" alt="Doge"/>
-<a href="/">Lets go back to the home page</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Oops Something went wrong
+        </h1>
+        <img id="doge-image" style="margin-top: 20px; width: 50%; height: 50%;" alt="Doge"/>
+        <a href="/">Lets go back to the home page</a>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const publicUrl = process.env.PUBLIC_URL || '';
+            const imgElement = document.getElementById('doge-image');
+            imgElement.src = `${publicUrl}/images/doge.svg`;
+        });
+    </script>
+</body>
+</html>
