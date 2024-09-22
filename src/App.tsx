@@ -1,17 +1,12 @@
 import Main from "./components/Main";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Container maxWidth="lg">
         <Typography component={"span"} variant={"body2"}>
           {/* Define Routes */}
@@ -21,7 +16,7 @@ const App = () => {
           </Routes>
         </Typography>
       </Container>
-    </Router>
+    </HashRouter>
   );
 };
 
