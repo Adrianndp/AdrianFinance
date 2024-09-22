@@ -177,7 +177,7 @@ function Main() {
           <TabPanel value="3">
             {/* Third Tab */}
             <Typography variant="h5" gutterBottom>
-              Company Information
+              Technical Analysis
             </Typography>
             <SemiGauge title="Strong Buy" data={0.85} />
             <Typography variant="h5" gutterBottom>
